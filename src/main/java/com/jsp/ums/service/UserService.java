@@ -1,7 +1,19 @@
 package com.jsp.ums.service;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.jsp.ums.entity.User;
+import com.jsp.ums.requestdto.UserRequest;
+import com.jsp.ums.requestdto.UserResponse;
+import com.jsp.ums.util.ResponseStructure;
 
 public interface UserService {
-	User saveUser(User user);
+	public ResponseEntity<ResponseStructure<UserResponse>> saveUser(UserRequest userRequest);
+
+	public ResponseEntity<ResponseStructure<UserResponse>> updateUser(@RequestParam int userid, @RequestBody User user);
+
+	public ResponseEntity<ResponseStructure<UserResponse>> deleteUser(@PathVariable int userid);
 }
