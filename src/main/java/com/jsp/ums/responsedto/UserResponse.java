@@ -1,4 +1,4 @@
-package com.jsp.ums.requestdto;
+package com.jsp.ums.responsedto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,6 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserResponse {
+	
 	private int userid;
 	private String username;
 	private String email;
