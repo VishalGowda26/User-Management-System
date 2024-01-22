@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jsp.ums.entity.User;
 import com.jsp.ums.requestdto.UserRequest;
-import com.jsp.ums.requestdto.UserResponse;
+import com.jsp.ums.responsedto.UserResponse;
 import com.jsp.ums.util.ResponseStructure;
 
 public interface UserService {

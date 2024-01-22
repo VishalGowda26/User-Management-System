@@ -9,11 +9,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.jsp.ums.entity.User;
-import com.jsp.ums.exception.DummyException;
 import com.jsp.ums.exception.UserNotFoundException;
 import com.jsp.ums.repo.UserRepo;
 import com.jsp.ums.requestdto.UserRequest;
-import com.jsp.ums.requestdto.UserResponse;
+import com.jsp.ums.responsedto.UserResponse;
 import com.jsp.ums.service.UserService;
 import com.jsp.ums.util.ResponseStructure;
 
