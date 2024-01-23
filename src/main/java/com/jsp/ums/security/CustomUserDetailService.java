@@ -4,20 +4,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
-import com.jsp.ums.entity.User;
 import com.jsp.ums.repo.UserRepo;
-
+@Service
 public class CustomUserDetailService implements UserDetailsService {
 
 	@Autowired
-	UserRepo userRepo;
+	private UserRepo userRepo;
 
+	/*----------------------------------> Using Map Method <-------------------------------------*/
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userRepo.findByUserName(username)
-				.orElseThrow(() -> new UsernameNotFoundException("UserName Not Found"));
-		return new CustomUserDetails(user);
+		return userRepo.findByUsername(username).map(user -> new CustomUserDetails(user))
+				.orElseThrow(() -> new UsernameNotFoundException("Failed to authenticate the user"));
+
 	}
+	
+	/*----------------------------------> Another Way <-------------------------------------*/
+//	@Override
+//	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//		User user = userRepo.findByUsername(username)
+//				.orElseThrow(() -> new UsernameNotFoundException("UserName Not Found"));
+//		return new CustomUserDetails(user);
+//	}
 
 }
