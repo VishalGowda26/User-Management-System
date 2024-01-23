@@ -38,7 +38,7 @@ public class UserController {
 					@ApiResponse(responseCode = "400", description = "failed to add user", content = {
 							@Content(schema = @Schema(implementation = ApplicationExceptionHandler.class, description = "Method: structure")) }) })
 
-	@PostMapping("/users")
+	@PostMapping("/users/register")
 	public ResponseEntity<ResponseStructure<UserResponse>> saveUser(@RequestBody @Valid UserRequest userRequest) {
 		return service.saveUser(userRequest);
 	}
